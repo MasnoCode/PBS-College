@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+int main() {
+    int zadanie;
+    printf("Lista zadan:\n"
+           "1.Napisz program ktory zliczy slowa i znaki wpisane przez uzytkownika. Mozesz skorzystac z biblioteki ctype.h (funkcja isspace ())oraz stdbool.h\n"
+           "2.Napisz program ktory pobiera liczbe przepracowanych godzin w tygodniu a nastepnie wyswietla wynagrodzenie  brutto  podatek  oraz  wynagrodzenie netto nastepujace wartosci:\n a.podstawowe wynagrodzenie 40 zl/godz. \n b.nadgodziny powyzej 40 godzin w tygodniu = 150 procent podstawowego wynagrodzenia\n c.podatek:\n  15 procent dla pierwszych 1200 zl \n  20 procent dla kolejnych 600 zl \n  25 procent dla reszty wynagrodzenia.");
+    printf("\nProsze wybrac zadanie:");
+    scanf("%d", &zadanie);
+    if (zadanie = 1) printf("Prosze cos napisac:");
+    switch (zadanie)
+    {
+        case 1:
+        {
+            char c,ch;
+            scanf("%c",&c);
+            ch = getchar();
+            int slowa=1,znaki=0;
+            while (ch != '\n')
+            {
+                if (ch == ' ') slowa++;
+                if (ch != ' ') znaki++;
+                ch = getchar();
+            }
+            printf("Ilosc slow:%d\nIlosc znakow:%d", slowa,znaki);
+            break;
+        }
+        case 2:
+        {
+            /* Zmienne */
+            float norma,nadgodziny,brutto,godziny;
+            /* podatki */
+            float pod15,pod20,pod25,netto;
+            printf("Prosze podac liczbe godzin przepracowanych w ciagu tygodnia:");
+            scanf("%f",&godziny);
+            if (godziny > 40)
+            {
+                norma = 40 * 40;
+                nadgodziny = (godziny - 40) * 60;
+                brutto = norma + nadgodziny;
+                printf("Wynagrodzenie brutto:%.2f zl\n", brutto);
+                if (brutto > 1800)
+                {
+                    pod15=180;
+                    pod20=120;
+                    pod25=(brutto-1800)*0.25;
+                    netto=brutto-(pod15+pod20+pod25);
+                    printf("Podatek netto:%.2f zl\n",netto);
+                    printf("Nalezny podatek:%.2f zl",pod15+pod20+pod25);
+                }
+                if (brutto <= 1800)
+                {
+                    pod15=180;
+                    pod20=(brutto-1200)*0.20;
+                    netto=brutto-(pod15+pod20);
+                    printf("Podatek netto:%.2f zl\n",netto);
+                    printf("Nalezny podatek:%.2f zl",pod15+pod20);
+                }
+
+            }
+            if (godziny <= 40)
+            {
+                norma = godziny*40;
+                brutto = norma;
+                printf("Wynagrodzenie brutto:%.2f zl\n", brutto);
+                if (brutto > 1200)
+                {
+                    pod15=180;
+                    pod20=(brutto-1200)*0.20;
+                    netto=brutto-pod15-pod20;
+                    printf("Wynagrodzenie netto:%.2f zl\n",netto);
+                    printf("Nalezny podatek:%.2f zl\n",pod15+pod20);
+                }
+                if (brutto <= 1200)
+                {
+                    pod15=brutto*0.15;
+                    netto=brutto-pod15;
+                    printf("Wynagrodzenie netto:%.2f zl\n",netto);
+                    printf("Nalezny podatek:%.2f zl", pod15);
+                }
+            }
+            break;
+        }
+    }
+    return 0;
+}
