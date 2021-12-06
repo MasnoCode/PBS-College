@@ -1,12 +1,12 @@
 #include <stdio.h>
-#define ilosc_zadan [_______________TU WPISAC ILOSC ZADAN_______________]
+#define ilosc_zadan /*[_______________TU WPISAC ILOSC ZADAN_______________] */
 int main() {
 
     int zadanie=1,a=1;
     for (int j = 0; zadanie != 0; j++)
     {
-        printf("[_______________TU WPISAC ZADANIA_______________]")
-               ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Aby zakonczyc program prosze wpisac 0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+        printf("[_______________TU WPISAC ZADANIA_______________]");
+               printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Aby zakonczyc program prosze wpisac 0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
         if (zadanie > ilosc_zadan || zadanie < 0) printf("Nie ma takiego zadania!\n");
                printf("\nProsze wybrac zadanie:");
         scanf("%d", &zadanie);
@@ -15,6 +15,7 @@ int main() {
                 case 1:
                 {
                     printf("Wybrano zadanie %d.\n", zadanie);
+
                     break;
                 }
                 case 2:
