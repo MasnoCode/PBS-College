@@ -29,7 +29,7 @@ int main() {
                 }
                 case 4:
                 {
-										printf("Wybrano zadanie %d.\n",zadanie);
+                    printf("Wybrano zadanie %d.\n",zadanie);
                     break;
                 }
             }
