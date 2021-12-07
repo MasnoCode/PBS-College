@@ -15,40 +15,28 @@ int main() {
                 case 1:
                 {
                     printf("Wybrano zadanie %d.\n", zadanie);
-
-                    printf("Wcisnij ENTER aby przejsc dalej.");
-                    getchar();
-                    getchar();
                     break;
                 }
                 case 2:
                 {
                     printf("Wybrano zadanie %d.\n",zadanie);
-
-                    printf("Wcisnij ENTER aby przejsc dalej.");
-                    getchar();
-                    getchar();
                     break;
                 }
                 case 3:
                 {
                     printf("Wybrano zadanie %d.\n",zadanie);
-
-                    printf("Wcisnij ENTER aby przejsc dalej.");
-                    getchar();
-                    getchar();
                     break;
                 }
                 case 4:
                 {
                     printf("Wybrano zadanie %d.\n",zadanie);
-                    printf("Wcisnij ENTER aby przejsc dalej.");
-                    getchar();
-                    getchar();
                     break;
                 }
             }
         }
+        printf("Wcisnij ENTER aby przejsc dalej.");
+        getchar();
+        getchar();
     }
     if (zadanie == 0) printf("Do widzenia :)");
     return 0;
