@@ -1,18 +1,5 @@
 #include <stdio.h>
 #define ilosc_zadan 4
-
-
-
-
-
-/* Zadanie 1 */
-int zadanie1_x[5];
-/* Zadanie 2 */
-int komorka_macierzy[3][3];
-
-
-
-
 int main() {
 
     int zadanie=1,a=1,end=0,enter;
@@ -33,6 +20,7 @@ int main() {
                 case 1:
                 {
                     int b=5,a=4,d;
+                    int zadanie1_x[5];
                     printf("Wybrano zadanie %d.\n", zadanie);
                     for (int k = 1; k <= 6; k++) {
                         printf("Prosze wpisac liczbe %d:", k);
@@ -49,6 +37,7 @@ int main() {
                 case 2:
                 {
                     int x=0,y=0,nr_wartosci=1,kolumna;
+                    int komorka_macierzy[3][3];
                     printf("Prosze podac 3 wartosci pierwszej kolumny.\n");
                     for (int cos=0; cos < 3; cos++)
                     {
