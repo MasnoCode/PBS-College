@@ -1,39 +1,104 @@
 #include <stdio.h>
-#define ilosc_zadan 4
+#include <stdlib.h>
+#include <time.h>
+#define ilosc_zadan 5
+
+
+
+
+/* Funkcje do zadan */
+/* Funkcja do zadania 4 */
+/* ********************************************************************************************************* */
+void sortowanie(int ilosc, int* wskaznik)
+{
+    for (int i = 0; i < ilosc; i++)
+    {
+        for (int j = i + 1; j < ilosc; j++)
+        {
+            if (*(wskaznik + j) < *(wskaznik + i))
+            {
+                int t = *(wskaznik + i);
+                *(wskaznik + i) = *(wskaznik + j);
+                *(wskaznik + j) = t;
+            }
+        }
+    }
+    printf("\nCiag posortowany:");
+    for (int i = 0; i < ilosc; i++)
+        printf("%d ", *(wskaznik + i));
+}
+/* ********************************************************************************************************* */
+/*Funkcje do zadania 5 */
+void wartosc_a(int x[]), suma_a(int x[]);
+void wartosc_b(float x[]), suma_b(float x[]);
+void suma_a(int x[])
+{
+    int suma=0,*wskaznik_suma;
+    wskaznik_suma=&suma;
+    for (int i=0; i < 10; i++) *wskaznik_suma = *wskaznik_suma+*(x+i);
+    printf("\nSuma wszystkich liczb calkowitych: %d", *wskaznik_suma);
+}
+void suma_b(float x[])
+{
+    float suma=0,*wskaznik_suma;
+    wskaznik_suma=&suma;
+    for (int i = 0; i < 10; i++) *wskaznik_suma=*wskaznik_suma+*(x+i);
+    printf("\nSuma wszystkich liczb zmiennoprzecinkowych: %f", *wskaznik_suma);
+}
+void wartosc_a(int x[])
+{
+    printf("\nLiczby calkowite\nElement piaty = %d",*(x+(4)));
+    printf("\nElement dziesiaty = %d",*(x+9));
+    if (*(x+(4)) < *(x+9)) printf("\nWieksza liczba jest wartosc %d",*(x+9));
+    else printf("\nWieksza liczba jest wartosc %d\n", *(x+4));
+}
+void wartosc_b(float x[])
+{
+    printf("\nLiczby zmiennoprzecinkowe\nElement piaty = %f\n",*(x+(4)));
+    printf("Element dziesiaty = %f\n",*(x+9));
+    if (*(x+(4)) < *(x+9)) printf("\nWieksza liczba jest wartosc %f",*(x+9));
+    else printf("\nWieksza liczba jest wartosc %f", *(x+4));
+}
+/* ********************************************************************************************************* */
+
 int main() {
 
-    int zadanie=1,a=1,end=0,enter;
+    int zadanie=1,a=1,end=0,enter,restart=0;
     char ch;
+
     for (int j = 0; zadanie != 0; j++)
     {
         printf("1.Napisz program, ktory pobierze od uzytkownika 5 liczb i wyswietli je w odwrotnej kolejnosci. Do zadania wykorzystaj tablice.\n"
                "2.Napisz program, ktory dla tablicy dwuwymiarowej o rozmiarze 3x3wypisze z danych podanych przez uzytkownika macierz.\n"
-               "3.Napisz  program, ktorydoda  dwie pobrane od uzytkownika liczby,wykorzystujacwskazniki.\n"
-               "4.Napisz program, ktory uporzadkujerosnaco ciag 10liczb calkowitych uzywajac notacji wskaznikowej (stala tablica zadeklarowana w programie, sortowanie babelkowe).Sortowanie babelkowe polega na porownywaniu dwoch kolejnych elementow i zamianie ich kolejnosci, jezeli zaburza ona porzadek,w jakim sie sortuje tablice.\n"
-               "5.Napisz program, ktorywypelni 10 elementowa tablicecalkowitymiliczbami losowymi z     zakresu     0-100oraz     10elementowa  tablice  liczbamilosowymizmiennoprzecinkowymiz przedzialu 0 -1.Wypisz wszystkie elementy tablicy, napisz funkcje(wykorzystujaca  dzialanie  na  wskaznikach),ktora  zsumuje  wszystkie wylosowane liczby, a nastepnie uzywajac notacji wskaznikowej wskaz5 i 10 elementkazdej ztablicy.Napiszfunkcje, ktora poda najwieksza i najmniejsza wartosc z dwoch pobranychelementow.\n"
+               "3.Napisz  program, ktory doda  dwie pobrane od uzytkownika liczby,wykorzystujace wskazniki.\n"
+               "4.Napisz program, ktory uporzadkuje rosnaco ciag 10 liczb calkowitych uzywajac notacji wskaznikowej (stala tablica zadeklarowana w programie, sortowanie babelkowe).Sortowanie babelkowe polega na porownywaniu dwoch kolejnych elementow i zamianie ich kolejnosci, jezeli zaburza ona porzadek,w jakim sie sortuje tablice.\n"
+               "5.Napisz program, ktory wypelni 10 elementowa tablice calkowitymi liczbami losowymi z     zakresu     0-100oraz     10elementowa  tablice  liczbami losowymi zmienno przecinkowymi z przedzialu 0 -1.Wypisz wszystkie elementy tablicy, napisz funkcje(wykorzystujaca  dzialanie  na  wskaznikach),ktora  zsumuje  wszystkie wylosowane liczby, a nastepnie uzywajac notacji wskaznikowej wskaz5 i 10 elementkazdej ztablicy.Napiszfunkcje, ktora poda najwieksza i najmniejsza wartosc z dwoch pobranychelementow.\n"
                ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Aby zakonczyc program prosze wpisac 0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
         if (zadanie > ilosc_zadan || zadanie < 0) printf("Nie ma takiego zadania!\n");
         printf("\nProsze wybrac zadanie:");
         scanf("%d", &zadanie);
+        printf("Wybrano zadanie %d.\n", zadanie);
         for (int i = 1; i <= a; i++) {
             switch (zadanie) {
                 case 1:
                 {
                     int b=5,a=4,d;
                     int zadanie1_x[5];
-                    printf("Wybrano zadanie %d.\n", zadanie);
-                    for (int k = 1; k <= 6; k++) {
+                    for (int k = 1; k <= 6; k++)
+                    {
                         printf("Prosze wpisac liczbe %d:", k);
                         scanf("%d", &zadanie1_x[d]);
-                        for (k; k >= 5 && k < 10; k++) {
-                            printf("\nLiczba %d ma wartosc:%d\n", b, zadanie1_x[a]);
+                        for (k; k >= 5 && k < 10; k++)
+                        {
+                            if (a == 4) printf("\nCiag liczb w odwrotnej kolejnosci:");
+                            printf("%d ", zadanie1_x[a]);
                             a--;
                             b--;
                         }
                         d++;
                     }
-                }
                     break;
+                }
                 case 2:
                 {
                     int x=0,y=0,nr_wartosci=1,kolumna;
@@ -45,7 +110,6 @@ int main() {
                         {
                             printf("Kolumna %d wartosc %d:", kolumna=y+1, nr_wartosci);
                             scanf("%d", &komorka_macierzy[x][y]);
-                            printf("X=%d a Y=%d miacerz = %d\n",x,y,komorka_macierzy[x][y]);
                             x++;
                             nr_wartosci++;
                         }
@@ -53,20 +117,6 @@ int main() {
                         x=0;
                         y=y+1;
                         nr_wartosci=1;
-                    }
-                    x=0;
-                    y=0;
-                    for (int wysokosc = 0; wysokosc < 3; wysokosc++)
-                    {
-                        y=0;
-                        for (int szerokosc = 0; szerokosc < 3; szerokosc++)
-                        {
-                            printf("%d\t",komorka_macierzy[x][y]);
-                            printf("X=%d a Y=%d miacerz = %d\n",x,y,komorka_macierzy[x][y]);
-                            y++;
-                        }
-                        x++;
-                        printf("\n");
                     }
                     x=0;
                     y=0;
@@ -85,10 +135,45 @@ int main() {
                 }
                 case 3:
                 {
+                    int a, b, *liczba_a, *liczba_b, wynik;
+                    printf("Podaj liczbe a:");
+                    scanf("%d", &a);
+                    printf("Podaj liczbe b:");
+                    scanf("%d",&b);
+                    liczba_a = &a;
+                    liczba_b = &b;
+                    wynik = *liczba_a + *liczba_b;
+                    printf("%d+%d=%d", *liczba_a,*liczba_b,wynik);
                     break;
                 }
                 case 4:
                 {
+                    int Tablica[10] = {9,1,8,2,7,3,6,4,5,10}, ilosc = 10;
+                    sortowanie(ilosc, Tablica);
+                    break;
+                }
+                case 5:
+                {
+                    srand(time(NULL));
+                    int liczby_calkowite[10], *wskaznik_calkowitych[10];
+                    float liczby_przecinkowe[10], *wskaznik_przecinkowych[10];
+                    for (int i=0; i < 10; i++)
+                    {
+                        *(liczby_calkowite+i) = rand()%100+1;
+                        *(wskaznik_calkowitych+i) = *(&liczby_calkowite+i);
+                    }
+                    for (int i=0; i < 10; i++) {
+                        *(liczby_przecinkowe + i) = (float)rand() / (float)RAND_MAX;
+                        *(wskaznik_przecinkowych + i) = *(&liczby_przecinkowe + i);
+                    }
+                    printf("\nWartosci zmiennoprzecinkowe:");
+                    for (int i = 0; i < 10; i++) printf("%f ",*(liczby_przecinkowe+i));
+                    printf("\nWartosci calkowite:");
+                    for (int i = 0; i < 10; i++) printf("%d ", *(liczby_calkowite+i));
+                    /* a) */
+                    suma_a(*wskaznik_calkowitych), wartosc_a(*wskaznik_calkowitych);
+                    /* b) */
+                    suma_b(*wskaznik_przecinkowych), wartosc_b(*wskaznik_przecinkowych);
                     break;
                 }
             }
