@@ -5,20 +5,14 @@ void skracaj(char *ptr[],int skr);
 int main()
 {
     char znaki[SIZE],*ptr = &znaki;
-    int skroc;
+    int skroc=7;
     puts("Wpisz jakies slowo:");
     fgets(znaki,SIZE,stdin);
-    int ilosc = strlen(znaki)-1;
-    printf("Slowo sklada sie z tylu znakow:%d\n",ilosc);
-    puts("Do ilu skrocic tekst:");
-    scanf("%d",&skroc);
+    int ilosc = strlen(znaki);
+    printf("Slowo sklada sie z tylu znakow:%d\n",ilosc-1);
     skracaj(ptr,skroc);
     puts("Tekst skrocony");
-    for (int n = 0; n < skroc; n++)
-    {
-        putchar(*(znaki+n));
-    }
-
+    for (int n = 0; n < skroc; n++) putchar(*(znaki+n));
     return 0;
 }
 void skracaj(char *ptr[], int skr)
