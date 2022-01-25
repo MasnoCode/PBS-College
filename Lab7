@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 30
+void skracaj(char *ptr[],int skr);
+int main()
+{
+    char znaki[SIZE],*ptr = &znaki;
+    int skroc=7;
+    puts("Wpisz jakies slowo:");
+    fgets(znaki,SIZE,stdin);
+    int ilosc = strlen(znaki);
+    printf("Slowo sklada sie z tylu znakow:%d\n",ilosc-1);
+    skracaj(ptr,skroc);
+    puts("Tekst skrocony");
+    for (int n = 0; n < skroc; n++) putchar(*(znaki+n));
+
+    return 0;
+}
+void skracaj(char *ptr[], int skr)
+{
+    ptr[skr + 1] = '\n';
+}
