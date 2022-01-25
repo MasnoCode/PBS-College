@@ -19,3 +19,30 @@ void skracaj(char *ptr[], int skr)
 {
     ptr[skr + 1] = '\n';
 }
+
+//////////////////////////////////////////////////Zadanie 3///////////////////////////////////////////////////////////////
+#include <stdio.h>
+#include <string.h>
+#define SIZE 30
+void sklej(char *f_ptr,char *s_ptr);
+int main()
+{
+    char f_word[SIZE];
+    char s_word[SIZE];
+
+    puts("Podaj pierwszy wyraz:");
+    scanf("%s",&f_word);   // Co ciekawe fgets pobiera znak enter więc zmieniłem na scanf.
+    puts("Podaj drugi wyraz:");
+    scanf("%s",&s_word);
+    printf("Strcat - %s",strcat(f_word,s_word));
+    printf("\nFunkcja - ");
+    sklej(f_word,s_word);
+    return 0;
+}
+
+void sklej(char *f_ptr,char *s_ptr)
+{
+    int eo,a = strlen(f_ptr),b = strlen(s_ptr);
+    for (eo = 0; eo < a; eo++) printf("%c",*(f_ptr+eo));
+    for (eo= 0; eo < b; eo++) printf("%c",*(s_ptr+eo));
+}
