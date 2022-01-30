@@ -1,0 +1,83 @@
+#include <stdio.h>
+#define SIZE 100
+struct zbiorka{
+    char name[SIZE];
+    char surname[SIZE];
+    char group[SIZE];
+    float donation;
+};
+int main() {
+    int donators;
+    printf("Number of donators:");
+    scanf("%d",&donators);
+    struct zbiorka people[donators];
+    for (int i = 0; i < donators; i++) {
+        printf("Name:");
+        scanf("%s", people[i].name);
+        printf("Surname:");
+        scanf("%s", people[i].surname);
+        printf("Group:");
+        scanf("%s", people[i].group);
+        printf("Donation:");
+        scanf("%f", &people[i].donation);
+    }
+        for (int i = 0; i < donators; i++)
+        {
+            printf("\nName:%s\nSurname:%s\nGroup:%s\nDonation:%.2f PLN", people[i].name, people[i].surname, people[i].group, people[i].donation);
+            printf("\n--------------------------------------------");
+        }
+    return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Zadanie 2
+
+#include <stdio.h>
+#include <math.h>
+#define rozmiar 100
+struct kolo{
+    int promien;
+    int numer;
+    char nazwa[rozmiar];
+    int a;
+    int b;
+};
+int main() {
+    int a,b;
+    struct kolo kola[3]=
+            {
+                {
+                    12,         //promien
+                    1,          //numer kola
+                    "Circle A", //Nazwa
+                    3,             //punkt a
+                    6             //punkt b
+                    },
+
+                {
+                    2,
+                    2,
+                    "Circle B",
+                    1,
+                    7
+                    },
+                {
+                    32,
+                    3,
+                    "Circle C",
+                    0,
+                    4
+                },
+    };
+    printf("Prosze podac a:");
+    scanf("%d",&a);
+    printf("Prosze podac b:");
+    scanf("%d",&b);
+    for (int i = 0; i < 3; i++)
+    {
+        if (sqrt((a-kola[i].a)^2+(b-kola[i].b)^2) <= kola[i].promien) printf("Kolo %s o nr.%d\nPunkt nalezy do tego kola.\n-------------------------\n", kola[i].nazwa,kola[i].numer);
+        else printf("Kolo %s o nr.%d\nPunkt nienalezy do tego kola.\n-------------------------\n",kola[i].nazwa,kola[i].numer);
+    }
+    return 0;
+}
